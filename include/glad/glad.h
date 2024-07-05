@@ -24,7 +24,9 @@
 #define __glad_h_
 
 #ifdef __gl_h_
+#ifndef UT
 #error OpenGL header already included, remove this include, glad already provides it
+#endif
 #endif
 #define __gl_h_
 
