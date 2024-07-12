@@ -1,8 +1,8 @@
 src = []
 src += 'TemplateTest.cpp'
+src += '../main.cpp'
 
 src += '../../src/Example/example_file.c'
-src += '../../src/main.c'
 src += '../../src/glad.c'
 
 inc = []
