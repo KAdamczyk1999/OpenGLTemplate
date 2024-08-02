@@ -4,3 +4,4 @@ add_global_arguments('-D UT', language: 'c')
 add_global_arguments('-D UT', language: 'cpp')
 
 subdir('Test/TemplateTest')
+subdir('Test/GeometryTest')
