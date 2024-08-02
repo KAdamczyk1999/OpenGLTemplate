@@ -2,6 +2,7 @@
 #include <glfw/glfw3.h>
 #include <stdio.h>
 
+#include "View/main_view.h"
 
 int main() {
     glfwInit();
@@ -9,7 +10,9 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow *window = glfwCreateWindow(800, 600, "this is NOT a window!", NULL, NULL);
+    const int width = 1000;
+    const int height = 1000;
+    GLFWwindow *window = glfwCreateWindow(width, height, "this is NOT a window!", NULL, NULL);
     if (window == NULL) {
         printf("Failed to create GLFW window\n");
         glfwTerminate();
@@ -23,15 +26,25 @@ int main() {
         return -1;
     }
 
+    glViewport(0, 0, width, height);
+
+    runOnEntry();
+
+    glClearColor(.0f, .0f, .0f, .0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwSwapBuffers(window);
+
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClearColor(.0f, .0f, .0f, .0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        runMainLoop();
 
         glfwSwapBuffers(window);
     }
-
+    runOnExit();
     glfwTerminate();
     return 0;
 }
